@@ -1,13 +1,12 @@
 package com.example.crudapplication.repository;
 
+import com.example.crudapplication.entity.Employee;
 import org.springframework.data.repository.CrudRepository;
-
-import com.example.crudapplication.entity.User;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 // CRUD refers Create, Read, Update, Delete
 
-public interface UserRepository extends CrudRepository<User, Integer> {
-
-    User findByName(String name);
+public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
+//    User findByName(String firstName);
+//    User findByName(String lastName);
 }
