@@ -17,10 +17,6 @@ public class EmployeeService {
         return repository.save(employee);
     }
 
-    public List<Employee> saveUsers(List<Employee> employees) {
-        return (List<Employee>) repository.saveAll(employees);
-    }
-
     public List<Employee> getUsers() {
         return (List<Employee>) repository.findAll();
     }
@@ -32,11 +28,11 @@ public class EmployeeService {
 
     public String deleteUser(int id) {
         repository.deleteById(id);
-        return "User removed !! " + id;
+        return "Employee removed !! " + id;
     }
 
-    public Employee updateUser(Employee employee) {
-        Employee existingEmployee = repository.findById(employee.getId()).orElse(null);
+    public Employee updateUser(int id,Employee employee) {
+        Employee existingEmployee = repository.findById(id).orElse(null);
         assert existingEmployee != null;
         existingEmployee.setRole(employee.getRole());
         existingEmployee.setDesignation(employee.getDesignation());
