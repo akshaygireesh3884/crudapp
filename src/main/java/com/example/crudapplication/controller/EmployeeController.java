@@ -19,7 +19,7 @@ public class EmployeeController {
     @PostMapping("/v1/employeeserv/employees")
     public Employee addEmployee(@RequestBody Employee employee) {
         try{
-            return service.saveUser(employee);
+            return service.saveEmployee(employee);
         }catch (Exception exception){
             System.out.println(exception.getMessage());
             throw exception;
@@ -30,7 +30,7 @@ public class EmployeeController {
     @GetMapping("/v1/employeeserv/employees")
     public List<Employee> findAllEmployees() {
         try{
-            return service.getUsers();
+            return service.getEmployees();
 
         }catch (Exception exception){
             System.out.println(exception.getMessage());
@@ -41,8 +41,8 @@ public class EmployeeController {
     @GetMapping("/v1/employeeserv/employees/{id}")
     public Employee findEmployeeById(@PathVariable int id) throws Exception {
         try {
-            if(service.getUserById(id) != null)
-                 return service.getUserById(id);
+            if(service.getEmployeeById(id) != null)
+                 return service.getEmployeeById(id);
             throw  new Exception("Employee not Found");
 
         }catch (Exception exception){
@@ -56,7 +56,7 @@ public class EmployeeController {
     @PutMapping("/v1/employeeserv/employees/{id}")
     public Employee updateEmployee(@PathVariable int id,@RequestBody Employee employee) {
         try{
-            return service.updateUser(id,employee);
+            return service.updateEmployee(id,employee);
 
         }catch (Exception exception){
             System.out.println(exception.getMessage());
@@ -67,7 +67,7 @@ public class EmployeeController {
     @DeleteMapping("/v1/employeeserv/employees/{id}")
     public String deleteEmployee(@PathVariable int id) {
         try{
-            return service.deleteUser(id);
+            return service.deleteEmployee(id);
         }catch (Exception exception){
             System.out.println(exception.getMessage());
             throw exception;

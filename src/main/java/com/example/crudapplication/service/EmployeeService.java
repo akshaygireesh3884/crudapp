@@ -13,25 +13,24 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository repository;
 
-    public Employee saveUser(Employee employee) {
+    public Employee saveEmployee(Employee employee) {
         return repository.save(employee);
     }
 
-    public List<Employee> getUsers() {
+    public List<Employee> getEmployees() {
         return (List<Employee>) repository.findAll();
     }
 
-    public Employee getUserById(int id) {
+    public Employee getEmployeeById(int id) {
         return repository.findById(id).orElse(null);
     }
 
-
-    public String deleteUser(int id) {
+    public String deleteEmployee(int id) {
         repository.deleteById(id);
         return "Employee removed !! " + id;
     }
 
-    public Employee updateUser(int id,Employee employee) {
+    public Employee updateEmployee(int id,Employee employee) {
         Employee existingEmployee = repository.findById(id).orElse(null);
         assert existingEmployee != null;
         existingEmployee.setRole(employee.getRole());
